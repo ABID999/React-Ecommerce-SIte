@@ -1,0 +1,21 @@
+.checkout-item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &>*{
+        width: 20%;
+    }
+    &>p{
+        font-size: 22px;
+    }
+    img{
+        width: 12%;
+        padding: 20px;
+    }
+    span{
+        cursor: pointer;
+    }
+    .cross{
+        cursor: pointer;
+    }
+}

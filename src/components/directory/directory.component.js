@@ -1,10 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import MenuItem from '../menu-item/menu-item.component';
 import './directory.styles.scss';
-
+/*
 class Directory extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         
         this.state ={
             sections: [
@@ -45,17 +46,23 @@ class Directory extends React.Component{
     }
 
     render(){
-        return(
-            <div className="directory-menu">
-                {this.state.sections.map( ({id, ...otherSectionProps})=>{
-                    return <MenuItem key={id} {...otherSectionProps} />
-                })}
-                {/*this.state.sections.map( ({title, imageUrl,size,id, linkUrk})=>{
-                    return <MenuItem key={id} imageUrl={imageUrl} title={title.toUpperCase()} size={size} />
-                })*/}
-            </div>
-        )
-    }
+
+*/
+const Directory = ({directory})=>{
+  return(
+      <div className="directory-menu">
+          {directory.sections.map( ({id, ...otherSectionProps})=>{
+              return <MenuItem key={id} {...otherSectionProps} />
+          })}
+          {/*this.state.sections.map( ({title, imageUrl,size,id, linkUrk})=>{
+              return <MenuItem key={id} imageUrl={imageUrl} title={title.toUpperCase()} size={size} />
+          })*/}
+      </div>
+  )
 }
 
-export default Directory;
+const mapStateToProps = state =>({
+  directory: state.directory
+})
+
+export default connect(mapStateToProps)(Directory);
